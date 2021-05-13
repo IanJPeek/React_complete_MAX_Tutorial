@@ -42,7 +42,7 @@ function App() {
 
   useEffect(() => {
     fetchMoviesHandler()
-  }, [])
+  }, [fetchMoviesHandler])
 
   let content = <p>Found no movies.</p>
 
