@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
-const useHttp = (requestConfig, applyData) => {
+const useHttp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const sendRequest = async (taskText) => {
+
+  const sendRequest = useCallback (async (requestConfig, applyData) => {
     setIsLoading(true);
     setError(null);
+    console.log("requestConfig", requestConfig)
     try {
       const response = await fetch(
         // 'https://react-max-tasks-default-rtdb.europe-west1.firebasedatabase.app/tasks.json'
@@ -27,7 +29,7 @@ const useHttp = (requestConfig, applyData) => {
       setError(err.message || "Something went wrong!");
     }
     setIsLoading(false);
-  };
+  }, []);
 
   return { isLoading, error, sendRequest };
 };
