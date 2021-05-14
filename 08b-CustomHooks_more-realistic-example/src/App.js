@@ -13,7 +13,7 @@ function App() {
     setError(null);
     try {
       const response = await fetch(
-        'https://react-http-max-movies-default-rtdb.europe-west1.firebasedatabase.app/movies.json'
+        'https://react-max-tasks-default-rtdb.europe-west1.firebasedatabase.app/tasks.json'
       );
 
       if (!response.ok) {
